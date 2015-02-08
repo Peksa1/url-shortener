@@ -11,7 +11,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
 
 app.get("/", function(req, res) {
-  res.send("Hello World!");
+  res.sendStatus(200);
 });
 
 app.get("/:id", function(req, res) {
