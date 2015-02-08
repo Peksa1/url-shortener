@@ -10,7 +10,7 @@ app.get("/", function(request, response) {
 
 app.post("/shorten", function(req, res) {
 	res.send("1234567");
-	console.log(req)
+	console.log(req.body)
 })
 
 app.listen(app.get("port"), function() {
