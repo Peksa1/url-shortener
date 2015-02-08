@@ -8,7 +8,7 @@ app.get("/", function(request, response) {
   response.send("Hello World!");
 });
 
-app.get("/shorten", function(req, res) {
+app.post("/shorten", function(req, res) {
 	res.send("1234567");
 	console.log(req)
 })
