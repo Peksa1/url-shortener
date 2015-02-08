@@ -14,10 +14,14 @@ app.get("/", function(req, res) {
 });
 
 app.get("/:id", function(req, res) {
-	console.log(redirects)
-	console.log(redirects[req.params.id]);
+	console.log(redirects);
+	console.log();
 
-	res.sendStatus(200).end()
+	if (typeof redirects[req.params.id] === "undefined") {
+		res.sendStatus(404);
+	} else {
+		res.redirect(redirects[req.params.id]);
+	};
 });
 
 app.post("/shorten", function(req, res) {
