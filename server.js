@@ -14,18 +14,21 @@ app.get("/", function(req, res) {
 });
 
 app.get("/:id", function(req, res) {
-	res.redirect(301,"http://www.facebook.com")
+	console.log(redirects)
+	console.log(redirects[req.params.id]);
+
+	res.sendStatus(200).end()
 });
 
 app.post("/shorten", function(req, res) {
-	//res.send("1234567");
-	console.log(req.body.link)
+	console.log(req.body.link);
 
-	if (!link in redirects) {
-		redirects.push(link);
+	if (redirects.indexOf(req.body.link) == -1) {
+		redirects.push(req.body.link);
+		console.log("Link not found, created new link at #" + redirects.indexOf(req.body.link));
 	};
-	res.send(redirects.indexOf(link));
-
+	res.status(200).send(redirects.indexOf(req.body.link).toString()).end();
+	console.log("Sent redirect-id " + redirects.indexOf(req.body.link));
 });
 
 app.listen(app.get("port"), function() {
