@@ -3,6 +3,9 @@
  *
  * See lib/config.defaults.js in the agent distribution for a more complete
  * description of configuration variables and their potential values.
+ *
+ * Used to keep the Heroku dyno alive.
+ *
  */
 exports.config = {
   /**
